@@ -1,0 +1,60 @@
+sequenceDiagram
+    actor RH as Área de RR.HH. (actor externo)
+    participant UI as Dashboard (interfaz)
+    participant AG as RetainIQ-Agent
+    participant PER as Percepción
+    participant DEC as Decisión (modelo ML)
+    participant ENT as Entorno (HRIS / Nómina / Evaluación)
+    participant NOT as Sistema de notificaciones
+
+    RH->>UI: Solicita ejecutar ciclo mensual
+    UI->>AG: ejecutar_ciclo_mensual(ciclo_id)
+    activate AG
+
+    AG->>ENT: observar()
+    activate ENT
+    ENT-->>AG: datos_crudos (percepción cruda)
+    deactivate ENT
+
+    AG->>PER: percibir(datos_crudos)
+    activate PER
+    alt datos completos (escenario típico)
+        PER-->>AG: dataset normalizado y codificado
+    else faltan variables (sensor sin dato)
+        PER->>PER: imputar valores faltantes (mediana / moda)
+        PER-->>AG: dataset normalizado (imputado)
+    end
+    deactivate PER
+
+    AG->>DEC: decidir(dataset)
+    activate DEC
+    DEC-->>AG: probabilidad_renuncia, categoria_riesgo
+    deactivate DEC
+
+    AG->>AG: comunicar_resumen(decisiones)
+
+    AG->>ENT: actuar(decisiones) — registrar reporte
+    activate ENT
+    ENT-->>AG: reporte.csv generado
+    deactivate ENT
+
+    opt existen empleados de riesgo alto
+        AG->>NOT: notificar(lista_alto_riesgo)
+        activate NOT
+        NOT-->>RH: correo con lista de empleados en riesgo
+        deactivate NOT
+    end
+
+    AG->>AG: memoria.guardar_ciclo(resumen)
+    AG-->>UI: resumen del ciclo
+    deactivate AG
+    UI-->>RH: muestra dashboard actualizado
+
+    Note over RH,NOT: Escenario de excepción: lote de entrada vacío
+    RH->>UI: Ejecuta ciclo sin empleados activos
+    UI->>AG: ejecutar_ciclo_mensual(ciclo_id)
+    AG->>PER: percibir([])
+    AG->>DEC: decidir([])
+    DEC-->>AG: DataFrame vacío (sin excepción)
+    AG-->>UI: resumen con total_empleados = 0
+    UI-->>RH: aviso "sin empleados para evaluar este ciclo"

@@ -1,0 +1,11 @@
+medida,formula,umbral,casos_ejecutados,media,desviacion_estandar,cumple,evidencia
+Precisión en clasificación de riesgo alto,"precision_score(y_true, y_pred) con umbral de decisión 0.5",>= 75%,5,0.5666,0.0905,False,logs/resultados_fase3.json -> precision_por_seed
+Recall (sensibilidad) complementaria,"recall_score(y_true, y_pred)",informativo (sin umbral SMART propio),5,0.1957,0.0474,,logs/resultados_fase3.json -> recall_por_seed
+F1-Score complementario,"f1_score(y_true, y_pred)",>= 50% (propuesto para este análisis),5,0.2902,0.0647,False,logs/resultados_fase3.json -> f1_por_seed
+AUC-ROC complementaria,"roc_auc_score(y_true, probas)",>= 0.70 (propuesto para este análisis),5,0.7671,0.028,True,logs/resultados_fase3.json -> auc_por_seed
+Caso límite: empleado con antigüedad máxima,Clasificación individual (decidir()),El agente debe producir una categoría válida sin error,1,0.6299,,True,categoria_riesgo=medio
+Caso límite: empleado recién contratado,Clasificación individual (decidir()),El agente debe producir una categoría válida sin error,1,0.3877,,True,categoria_riesgo=bajo
+Falla esperada: sensor sin dato (30% NaN en 3 variables),El agente debe imputar y continuar sin excepción,exito == True,1,,,True,"n_procesados=30, error=None"
+Falla esperada: lote de entrada vacío,El agente debe manejar el caso sin excepción,exito == True,1,,,True,"n_procesados=0, error=None"
+Condición excepcional: reestructuración organizacional,prob_promedio(post) > prob_promedio(pre),El riesgo promedio debe aumentar tras el recorte salarial simulado,100,0.2698,,True,"antes=0.2544, despues=0.2698"
+Reducción de tiempo de procesamiento manual,1 - (tiempo_agente / tiempo_manual_estimado),"Informativo — línea base estimada, no medida en campo real",100,1.0,,,tiempo_agente=0.0240s para 100 empleados vs. línea base estimada de 48000s

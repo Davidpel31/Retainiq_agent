@@ -1,0 +1,31 @@
+{
+  "ciclos": [
+    {
+      "ciclo_id": 1,
+      "timestamp": "2026-10-16T23:04:16.393581",
+      "n_empleados": 200,
+      "metricas": {
+        "ciclo_id": 1,
+        "total_empleados": 200,
+        "riesgo_alto": 6,
+        "riesgo_medio": 30,
+        "riesgo_bajo": 164,
+        "probabilidad_promedio": 0.2562
+      }
+    },
+    {
+      "ciclo_id": 2,
+      "timestamp": "2026-10-16T23:04:16.425938",
+      "n_empleados": 200,
+      "metricas": {
+        "ciclo_id": 2,
+        "total_empleados": 200,
+        "riesgo_alto": 6,
+        "riesgo_medio": 30,
+        "riesgo_bajo": 164,
+        "probabilidad_promedio": 0.2562
+      }
+    }
+  ],
+  "resultados_reales": []
+}

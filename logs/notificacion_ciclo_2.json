@@ -1,0 +1,12 @@
+{
+  "accion": "notificar_lideres_correo_electronico",
+  "destinatarios_simulados": 6,
+  "empleados_notificados": [
+    55,
+    65,
+    137,
+    167,
+    235,
+    243
+  ]
+}

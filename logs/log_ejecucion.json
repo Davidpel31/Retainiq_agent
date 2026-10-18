@@ -1,0 +1,96 @@
+[
+  {
+    "timestamp": "2026-10-16T23:04:15.899780",
+    "tipo": "percepcion",
+    "detalle": {
+      "n_registros": 1470,
+      "n_valores_imputados": 0
+    }
+  },
+  {
+    "timestamp": "2026-10-16T23:04:16.362193",
+    "tipo": "entrenamiento_inicial",
+    "detalle": {
+      "precision": 0.5882,
+      "recall": 0.2128,
+      "f1": 0.3125,
+      "auc_roc": 0.7874,
+      "n_train": 1176,
+      "n_test": 294
+    }
+  },
+  {
+    "timestamp": "2026-10-16T23:04:16.374906",
+    "tipo": "percepcion",
+    "detalle": {
+      "n_registros": 200,
+      "n_valores_imputados": 0
+    }
+  },
+  {
+    "timestamp": "2026-10-16T23:04:16.390572",
+    "tipo": "decision",
+    "detalle": {
+      "n_evaluados": 200,
+      "n_alto_riesgo": 6
+    }
+  },
+  {
+    "timestamp": "2026-10-16T23:04:16.391283",
+    "tipo": "comunicacion",
+    "detalle": {
+      "ciclo_id": 1,
+      "total_empleados": 200,
+      "riesgo_alto": 6,
+      "riesgo_medio": 30,
+      "riesgo_bajo": 164,
+      "probabilidad_promedio": 0.2562
+    }
+  },
+  {
+    "timestamp": "2026-10-16T23:04:16.393506",
+    "tipo": "accion",
+    "detalle": {
+      "reporte": "logs/reporte_ciclo_1.csv",
+      "notificacion": "logs/notificacion_ciclo_1.json",
+      "n_alto_riesgo_notificados": 6
+    }
+  },
+  {
+    "timestamp": "2026-10-16T23:04:16.407032",
+    "tipo": "percepcion",
+    "detalle": {
+      "n_registros": 200,
+      "n_valores_imputados": 0
+    }
+  },
+  {
+    "timestamp": "2026-10-16T23:04:16.423394",
+    "tipo": "decision",
+    "detalle": {
+      "n_evaluados": 200,
+      "n_alto_riesgo": 6
+    }
+  },
+  {
+    "timestamp": "2026-10-16T23:04:16.424147",
+    "tipo": "comunicacion",
+    "detalle": {
+      "ciclo_id": 2,
+      "total_empleados": 200,
+      "riesgo_alto": 6,
+      "riesgo_medio": 30,
+      "riesgo_bajo": 164,
+      "probabilidad_promedio": 0.2562
+    }
+  },
+  {
+    "timestamp": "2026-10-16T23:04:16.425886",
+    "tipo": "accion",
+    "detalle": {
+      "reporte": "logs/reporte_ciclo_2.csv",
+      "notificacion": "logs/notificacion_ciclo_2.json",
+      "n_alto_riesgo_notificados": 6
+    }
+  }
+]

@@ -1,0 +1,132 @@
+{
+  "precision_por_seed": {
+    "1": 0.5882,
+    "2": 0.5294,
+    "3": 0.4167,
+    "4": 0.6111,
+    "5": 0.6875
+  },
+  "recall_por_seed": {
+    "1": 0.2128,
+    "2": 0.1915,
+    "3": 0.1064,
+    "4": 0.234,
+    "5": 0.234
+  },
+  "f1_por_seed": {
+    "1": 0.3125,
+    "2": 0.2812,
+    "3": 0.1695,
+    "4": 0.3385,
+    "5": 0.3492
+  },
+  "auc_por_seed": {
+    "1": 0.7874,
+    "2": 0.7594,
+    "3": 0.7175,
+    "4": 0.7978,
+    "5": 0.7733
+  },
+  "resultados_tabla": [
+    {
+      "medida": "Precisión en clasificación de riesgo alto",
+      "formula": "precision_score(y_true, y_pred) con umbral de decisión 0.5",
+      "umbral": ">= 75%",
+      "casos_ejecutados": 5,
+      "media": 0.5666,
+      "desviacion_estandar": 0.0905,
+      "cumple": false,
+      "evidencia": "logs/resultados_fase3.json -> precision_por_seed"
+    },
+    {
+      "medida": "Recall (sensibilidad) complementaria",
+      "formula": "recall_score(y_true, y_pred)",
+      "umbral": "informativo (sin umbral SMART propio)",
+      "casos_ejecutados": 5,
+      "media": 0.1957,
+      "desviacion_estandar": 0.0474,
+      "cumple": null,
+      "evidencia": "logs/resultados_fase3.json -> recall_por_seed"
+    },
+    {
+      "medida": "F1-Score complementario",
+      "formula": "f1_score(y_true, y_pred)",
+      "umbral": ">= 50% (propuesto para este análisis)",
+      "casos_ejecutados": 5,
+      "media": 0.2902,
+      "desviacion_estandar": 0.0647,
+      "cumple": false,
+      "evidencia": "logs/resultados_fase3.json -> f1_por_seed"
+    },
+    {
+      "medida": "AUC-ROC complementaria",
+      "formula": "roc_auc_score(y_true, probas)",
+      "umbral": ">= 0.70 (propuesto para este análisis)",
+      "casos_ejecutados": 5,
+      "media": 0.7671,
+      "desviacion_estandar": 0.028,
+      "cumple": true,
+      "evidencia": "logs/resultados_fase3.json -> auc_por_seed"
+    },
+    {
+      "medida": "Caso límite: empleado con antigüedad máxima",
+      "formula": "Clasificación individual (decidir())",
+      "umbral": "El agente debe producir una categoría válida sin error",
+      "casos_ejecutados": 1,
+      "media": 0.6299,
+      "desviacion_estandar": null,
+      "cumple": true,
+      "evidencia": "categoria_riesgo=medio"
+    },
+    {
+      "medida": "Caso límite: empleado recién contratado",
+      "formula": "Clasificación individual (decidir())",
+      "umbral": "El agente debe producir una categoría válida sin error",
+      "casos_ejecutados": 1,
+      "media": 0.3877,
+      "desviacion_estandar": null,
+      "cumple": true,
+      "evidencia": "categoria_riesgo=bajo"
+    },
+    {
+      "medida": "Falla esperada: sensor sin dato (30% NaN en 3 variables)",
+      "formula": "El agente debe imputar y continuar sin excepción",
+      "umbral": "exito == True",
+      "casos_ejecutados": 1,
+      "media": null,
+      "desviacion_estandar": null,
+      "cumple": true,
+      "evidencia": "n_procesados=30, error=None"
+    },
+    {
+      "medida": "Falla esperada: lote de entrada vacío",
+      "formula": "El agente debe manejar el caso sin excepción",
+      "umbral": "exito == True",
+      "casos_ejecutados": 1,
+      "media": null,
+      "desviacion_estandar": null,
+      "cumple": true,
+      "evidencia": "n_procesados=0, error=None"
+    },
+    {
+      "medida": "Condición excepcional: reestructuración organizacional",
+      "formula": "prob_promedio(post) > prob_promedio(pre)",
+      "umbral": "El riesgo promedio debe aumentar tras el recorte salarial simulado",
+      "casos_ejecutados": 100,
+      "media": 0.2698,
+      "desviacion_estandar": null,
+      "cumple": true,
+      "evidencia": "antes=0.2544, despues=0.2698"
+    },
+    {
+      "medida": "Reducción de tiempo de procesamiento manual",
+      "formula": "1 - (tiempo_agente / tiempo_manual_estimado)",
+      "umbral": "Informativo — línea base estimada, no medida en campo real",
+      "casos_ejecutados": 100,
+      "media": 1.0,
+      "desviacion_estandar": null,
+      "cumple": null,
+      "evidencia": "tiempo_agente=0.0240s para 100 empleados vs. línea base estimada de 48000s"
+    }
+  ]
+}
