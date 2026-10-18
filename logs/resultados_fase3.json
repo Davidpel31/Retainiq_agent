@@ -1,132 +1,319 @@
 {
-  "precision_por_seed": {
-    "1": 0.5882,
-    "2": 0.5294,
-    "3": 0.4167,
-    "4": 0.6111,
-    "5": 0.6875
+  "versiones": {
+    "python": "3.12.10",
+    "scikit_learn": "1.9.1",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3"
   },
-  "recall_por_seed": {
-    "1": 0.2128,
-    "2": 0.1915,
-    "3": 0.1064,
-    "4": 0.234,
-    "5": 0.234
+  "semillas_principal": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "semillas_escenarios": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "normal": {
+    "precision": [
+      0.5098,
+      0.4444,
+      0.4062,
+      0.4286,
+      0.5192,
+      0.4688,
+      0.5429,
+      0.5312,
+      0.4211,
+      0.5
+    ],
+    "recall": [
+      0.5532,
+      0.3404,
+      0.2766,
+      0.383,
+      0.5745,
+      0.6383,
+      0.4043,
+      0.3617,
+      0.3404,
+      0.4043
+    ],
+    "f1": [
+      0.5306,
+      0.3855,
+      0.3291,
+      0.4045,
+      0.5455,
+      0.5405,
+      0.4634,
+      0.4304,
+      0.3765,
+      0.4471
+    ],
+    "auc_roc": [
+      0.8163,
+      0.7723,
+      0.7208,
+      0.8019,
+      0.7851,
+      0.8222,
+      0.8158,
+      0.7356,
+      0.7454,
+      0.7641
+    ]
   },
-  "f1_por_seed": {
-    "1": 0.3125,
-    "2": 0.2812,
-    "3": 0.1695,
-    "4": 0.3385,
-    "5": 0.3492
+  "sensor_sin_dato": {
+    "precision": [
+      0.4884,
+      0.4194,
+      0.4483,
+      0.4571,
+      0.5,
+      0.5192,
+      0.5938,
+      0.5,
+      0.4286,
+      0.5143
+    ],
+    "recall": [
+      0.4468,
+      0.2766,
+      0.2766,
+      0.3404,
+      0.4468,
+      0.5745,
+      0.4043,
+      0.3191,
+      0.3191,
+      0.383
+    ],
+    "f1": [
+      0.4667,
+      0.3333,
+      0.3421,
+      0.3902,
+      0.4719,
+      0.5455,
+      0.481,
+      0.3896,
+      0.3659,
+      0.439
+    ],
+    "auc_roc": [
+      0.8096,
+      0.7682,
+      0.7158,
+      0.8029,
+      0.7789,
+      0.821,
+      0.8232,
+      0.7256,
+      0.7441,
+      0.7579
+    ]
   },
-  "auc_por_seed": {
-    "1": 0.7874,
-    "2": 0.7594,
-    "3": 0.7175,
-    "4": 0.7978,
-    "5": 0.7733
+  "reestructuracion": {
+    "precision": [
+      0.4737,
+      0.425,
+      0.3947,
+      0.4222,
+      0.4828,
+      0.4493,
+      0.5532,
+      0.4615,
+      0.4186,
+      0.449
+    ],
+    "recall": [
+      0.5745,
+      0.3617,
+      0.3191,
+      0.4043,
+      0.5957,
+      0.6596,
+      0.5532,
+      0.383,
+      0.383,
+      0.4681
+    ],
+    "f1": [
+      0.5192,
+      0.3908,
+      0.3529,
+      0.413,
+      0.5333,
+      0.5345,
+      0.5532,
+      0.4186,
+      0.4,
+      0.4583
+    ],
+    "auc_roc": [
+      0.8213,
+      0.7701,
+      0.715,
+      0.7966,
+      0.7803,
+      0.8168,
+      0.8142,
+      0.7145,
+      0.753,
+      0.7617
+    ]
   },
-  "resultados_tabla": [
+  "tabla": [
     {
-      "medida": "Precisión en clasificación de riesgo alto",
-      "formula": "precision_score(y_true, y_pred) con umbral de decisión 0.5",
+      "medida": "Precisión en clasificación de riesgo alto (escenario normal)",
+      "formula": "precision_score(y_true, y_pred), umbral de decisión 0.5",
       "umbral": ">= 75%",
-      "casos_ejecutados": 5,
-      "media": 0.5666,
-      "desviacion_estandar": 0.0905,
+      "casos_ejecutados": 10,
+      "media": 0.4772,
+      "desviacion_estandar": 0.0472,
       "cumple": false,
-      "evidencia": "logs/resultados_fase3.json -> precision_por_seed"
+      "evidencia": "logs/resultados_fase3.json -> normal.precision"
     },
     {
-      "medida": "Recall (sensibilidad) complementaria",
+      "medida": "Recall complementario (escenario normal)",
       "formula": "recall_score(y_true, y_pred)",
-      "umbral": "informativo (sin umbral SMART propio)",
-      "casos_ejecutados": 5,
-      "media": 0.1957,
-      "desviacion_estandar": 0.0474,
+      "umbral": "informativo",
+      "casos_ejecutados": 10,
+      "media": 0.4277,
+      "desviacion_estandar": 0.1128,
       "cumple": null,
-      "evidencia": "logs/resultados_fase3.json -> recall_por_seed"
+      "evidencia": "logs/resultados_fase3.json -> normal.recall"
     },
     {
-      "medida": "F1-Score complementario",
+      "medida": "F1-Score complementario (escenario normal)",
       "formula": "f1_score(y_true, y_pred)",
-      "umbral": ">= 50% (propuesto para este análisis)",
-      "casos_ejecutados": 5,
-      "media": 0.2902,
-      "desviacion_estandar": 0.0647,
+      "umbral": ">= 50% (propuesto)",
+      "casos_ejecutados": 10,
+      "media": 0.4453,
+      "desviacion_estandar": 0.071,
       "cumple": false,
-      "evidencia": "logs/resultados_fase3.json -> f1_por_seed"
+      "evidencia": "logs/resultados_fase3.json -> normal.f1"
     },
     {
-      "medida": "AUC-ROC complementaria",
+      "medida": "AUC-ROC complementaria (escenario normal)",
       "formula": "roc_auc_score(y_true, probas)",
-      "umbral": ">= 0.70 (propuesto para este análisis)",
-      "casos_ejecutados": 5,
-      "media": 0.7671,
-      "desviacion_estandar": 0.028,
+      "umbral": ">= 0.7 (propuesto)",
+      "casos_ejecutados": 10,
+      "media": 0.7779,
+      "desviacion_estandar": 0.0344,
       "cumple": true,
-      "evidencia": "logs/resultados_fase3.json -> auc_por_seed"
+      "evidencia": "logs/resultados_fase3.json -> normal.auc_roc"
+    },
+    {
+      "medida": "Precisión con sensor sin dato (30 % NaN en 3 variables)",
+      "formula": "precision_score sobre el conjunto de prueba degradado",
+      "umbral": ">= 75%",
+      "casos_ejecutados": 10,
+      "media": 0.4869,
+      "desviacion_estandar": 0.0489,
+      "cumple": false,
+      "evidencia": "logs/resultados_fase3.json -> sensor_sin_dato.precision"
+    },
+    {
+      "medida": "AUC-ROC con sensor sin dato",
+      "formula": "roc_auc_score sobre el conjunto de prueba degradado",
+      "umbral": ">= 0.7",
+      "casos_ejecutados": 10,
+      "media": 0.7747,
+      "desviacion_estandar": 0.037,
+      "cumple": true,
+      "evidencia": "logs/resultados_fase3.json -> sensor_sin_dato.auc_roc"
+    },
+    {
+      "medida": "Precisión bajo reestructuración organizacional (ingreso −15 %, satisfacción −1)",
+      "formula": "precision_score sobre el conjunto de prueba degradado",
+      "umbral": ">= 75%",
+      "casos_ejecutados": 10,
+      "media": 0.453,
+      "desviacion_estandar": 0.0421,
+      "cumple": false,
+      "evidencia": "logs/resultados_fase3.json -> reestructuracion.precision"
+    },
+    {
+      "medida": "AUC-ROC bajo reestructuración organizacional",
+      "formula": "roc_auc_score sobre el conjunto de prueba degradado",
+      "umbral": ">= 0.7",
+      "casos_ejecutados": 10,
+      "media": 0.7743,
+      "desviacion_estandar": 0.0372,
+      "cumple": true,
+      "evidencia": "logs/resultados_fase3.json -> reestructuracion.auc_roc"
     },
     {
       "medida": "Caso límite: empleado con antigüedad máxima",
-      "formula": "Clasificación individual (decidir())",
-      "umbral": "El agente debe producir una categoría válida sin error",
-      "casos_ejecutados": 1,
-      "media": 0.6299,
-      "desviacion_estandar": null,
+      "formula": "decidir(): 0 <= prob <= 1 y categoría coherente con los umbrales",
+      "umbral": "válido en las 5 repeticiones",
+      "casos_ejecutados": 5,
+      "media": 0.6044,
+      "desviacion_estandar": 0.271,
       "cumple": true,
-      "evidencia": "categoria_riesgo=medio"
+      "evidencia": "5/5 repeticiones válidas"
     },
     {
       "medida": "Caso límite: empleado recién contratado",
-      "formula": "Clasificación individual (decidir())",
-      "umbral": "El agente debe producir una categoría válida sin error",
-      "casos_ejecutados": 1,
-      "media": 0.3877,
-      "desviacion_estandar": null,
+      "formula": "decidir(): 0 <= prob <= 1 y categoría coherente con los umbrales",
+      "umbral": "válido en las 5 repeticiones",
+      "casos_ejecutados": 5,
+      "media": 0.5001,
+      "desviacion_estandar": 0.0691,
       "cumple": true,
-      "evidencia": "categoria_riesgo=bajo"
+      "evidencia": "5/5 repeticiones válidas"
     },
     {
-      "medida": "Falla esperada: sensor sin dato (30% NaN en 3 variables)",
-      "formula": "El agente debe imputar y continuar sin excepción",
-      "umbral": "exito == True",
-      "casos_ejecutados": 1,
+      "medida": "Falla esperada: sensor sin dato (30 % NaN)",
+      "formula": "decidir() procesa los 30 registros sin excepción",
+      "umbral": "éxito en las 5 repeticiones",
+      "casos_ejecutados": 5,
       "media": null,
       "desviacion_estandar": null,
       "cumple": true,
-      "evidencia": "n_procesados=30, error=None"
+      "evidencia": "5/5 repeticiones sin error"
     },
     {
       "medida": "Falla esperada: lote de entrada vacío",
-      "formula": "El agente debe manejar el caso sin excepción",
-      "umbral": "exito == True",
-      "casos_ejecutados": 1,
+      "formula": "decidir() devuelve 0 registros sin excepción",
+      "umbral": "éxito en las 5 repeticiones",
+      "casos_ejecutados": 5,
       "media": null,
       "desviacion_estandar": null,
       "cumple": true,
-      "evidencia": "n_procesados=0, error=None"
+      "evidencia": "5/5 repeticiones sin error"
     },
     {
-      "medida": "Condición excepcional: reestructuración organizacional",
-      "formula": "prob_promedio(post) > prob_promedio(pre)",
-      "umbral": "El riesgo promedio debe aumentar tras el recorte salarial simulado",
-      "casos_ejecutados": 100,
-      "media": 0.2698,
-      "desviacion_estandar": null,
+      "medida": "Condición excepcional: reestructuración (probabilidad promedio, 100 empleados)",
+      "formula": "prob_promedio(después) > prob_promedio(antes)",
+      "umbral": "aumento en las 5 repeticiones",
+      "casos_ejecutados": 5,
+      "media": 0.3401,
+      "desviacion_estandar": 0.0111,
       "cumple": true,
-      "evidencia": "antes=0.2544, despues=0.2698"
+      "evidencia": "antes=0.3278, después=0.3401; 5/5 repeticiones con aumento"
     },
     {
-      "medida": "Reducción de tiempo de procesamiento manual",
+      "medida": "Reducción de tiempo de procesamiento manual (100 empleados)",
       "formula": "1 - (tiempo_agente / tiempo_manual_estimado)",
-      "umbral": "Informativo — línea base estimada, no medida en campo real",
-      "casos_ejecutados": 100,
+      "umbral": "informativo (línea base estimada, no medida en campo)",
+      "casos_ejecutados": 5,
       "media": 1.0,
-      "desviacion_estandar": null,
+      "desviacion_estandar": 0.0,
       "cumple": null,
-      "evidencia": "tiempo_agente=0.0240s para 100 empleados vs. línea base estimada de 48000s"
+      "evidencia": "tiempo medio del agente = 0.0213 s vs. 48000 s estimados"
     }
   ]
 }

@@ -1,11 +1,15 @@
 medida,formula,umbral,casos_ejecutados,media,desviacion_estandar,cumple,evidencia
-Precisión en clasificación de riesgo alto,"precision_score(y_true, y_pred) con umbral de decisión 0.5",>= 75%,5,0.5666,0.0905,False,logs/resultados_fase3.json -> precision_por_seed
-Recall (sensibilidad) complementaria,"recall_score(y_true, y_pred)",informativo (sin umbral SMART propio),5,0.1957,0.0474,,logs/resultados_fase3.json -> recall_por_seed
-F1-Score complementario,"f1_score(y_true, y_pred)",>= 50% (propuesto para este análisis),5,0.2902,0.0647,False,logs/resultados_fase3.json -> f1_por_seed
-AUC-ROC complementaria,"roc_auc_score(y_true, probas)",>= 0.70 (propuesto para este análisis),5,0.7671,0.028,True,logs/resultados_fase3.json -> auc_por_seed
-Caso límite: empleado con antigüedad máxima,Clasificación individual (decidir()),El agente debe producir una categoría válida sin error,1,0.6299,,True,categoria_riesgo=medio
-Caso límite: empleado recién contratado,Clasificación individual (decidir()),El agente debe producir una categoría válida sin error,1,0.3877,,True,categoria_riesgo=bajo
-Falla esperada: sensor sin dato (30% NaN en 3 variables),El agente debe imputar y continuar sin excepción,exito == True,1,,,True,"n_procesados=30, error=None"
-Falla esperada: lote de entrada vacío,El agente debe manejar el caso sin excepción,exito == True,1,,,True,"n_procesados=0, error=None"
-Condición excepcional: reestructuración organizacional,prob_promedio(post) > prob_promedio(pre),El riesgo promedio debe aumentar tras el recorte salarial simulado,100,0.2698,,True,"antes=0.2544, despues=0.2698"
-Reducción de tiempo de procesamiento manual,1 - (tiempo_agente / tiempo_manual_estimado),"Informativo — línea base estimada, no medida en campo real",100,1.0,,,tiempo_agente=0.0240s para 100 empleados vs. línea base estimada de 48000s
+Precisión en clasificación de riesgo alto (escenario normal),"precision_score(y_true, y_pred), umbral de decisión 0.5",>= 75%,10,0.4772,0.0472,False,logs/resultados_fase3.json -> normal.precision
+Recall complementario (escenario normal),"recall_score(y_true, y_pred)",informativo,10,0.4277,0.1128,,logs/resultados_fase3.json -> normal.recall
+F1-Score complementario (escenario normal),"f1_score(y_true, y_pred)",>= 50% (propuesto),10,0.4453,0.071,False,logs/resultados_fase3.json -> normal.f1
+AUC-ROC complementaria (escenario normal),"roc_auc_score(y_true, probas)",>= 0.7 (propuesto),10,0.7779,0.0344,True,logs/resultados_fase3.json -> normal.auc_roc
+Precisión con sensor sin dato (30 % NaN en 3 variables),precision_score sobre el conjunto de prueba degradado,>= 75%,10,0.4869,0.0489,False,logs/resultados_fase3.json -> sensor_sin_dato.precision
+AUC-ROC con sensor sin dato,roc_auc_score sobre el conjunto de prueba degradado,>= 0.7,10,0.7747,0.037,True,logs/resultados_fase3.json -> sensor_sin_dato.auc_roc
+"Precisión bajo reestructuración organizacional (ingreso −15 %, satisfacción −1)",precision_score sobre el conjunto de prueba degradado,>= 75%,10,0.453,0.0421,False,logs/resultados_fase3.json -> reestructuracion.precision
+AUC-ROC bajo reestructuración organizacional,roc_auc_score sobre el conjunto de prueba degradado,>= 0.7,10,0.7743,0.0372,True,logs/resultados_fase3.json -> reestructuracion.auc_roc
+Caso límite: empleado con antigüedad máxima,decidir(): 0 <= prob <= 1 y categoría coherente con los umbrales,válido en las 5 repeticiones,5,0.6044,0.271,True,5/5 repeticiones válidas
+Caso límite: empleado recién contratado,decidir(): 0 <= prob <= 1 y categoría coherente con los umbrales,válido en las 5 repeticiones,5,0.5001,0.0691,True,5/5 repeticiones válidas
+Falla esperada: sensor sin dato (30 % NaN),decidir() procesa los 30 registros sin excepción,éxito en las 5 repeticiones,5,,,True,5/5 repeticiones sin error
+Falla esperada: lote de entrada vacío,decidir() devuelve 0 registros sin excepción,éxito en las 5 repeticiones,5,,,True,5/5 repeticiones sin error
+"Condición excepcional: reestructuración (probabilidad promedio, 100 empleados)",prob_promedio(después) > prob_promedio(antes),aumento en las 5 repeticiones,5,0.3401,0.0111,True,"antes=0.3278, después=0.3401; 5/5 repeticiones con aumento"
+Reducción de tiempo de procesamiento manual (100 empleados),1 - (tiempo_agente / tiempo_manual_estimado),"informativo (línea base estimada, no medida en campo)",5,1.0,0.0,,tiempo medio del agente = 0.0213 s vs. 48000 s estimados
