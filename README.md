@@ -20,7 +20,7 @@ Un agente **basado en utilidad con capacidades de aprendizaje** (clasificación 
 
 El agente no toma decisiones automáticas sobre las personas: solo apoya a RR. HH. El ciclo percepción → decisión → acción está en `agent.py`, método `ejecutar_ciclo_mensual()`.
 
-## 2. Resultado principal (honesto)
+## 2. Resultado principal 
 
 La medida SMART del diseño era una **precisión ≥ 75 %** en la clasificación de riesgo alto. **No se cumplió.**
 
