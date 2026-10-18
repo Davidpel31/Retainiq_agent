@@ -53,7 +53,6 @@ sequenceDiagram
     Note over RH,NOT: Escenario de excepción: lote de entrada vacío
     RH->>UI: Ejecuta ciclo sin empleados activos
     UI->>AG: ejecutar_ciclo_mensual(ciclo_id)
-    AG->>PER: percibir([])
     AG->>DEC: decidir([])
     DEC-->>AG: DataFrame vacío (sin excepción)
     AG-->>UI: resumen con total_empleados = 0
