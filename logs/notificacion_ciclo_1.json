@@ -1,12 +1,31 @@
 {
   "accion": "notificar_lideres_correo_electronico",
-  "destinatarios_simulados": 6,
+  "destinatarios_simulados": 25,
   "empleados_notificados": [
+    1,
+    19,
+    27,
+    33,
+    42,
+    47,
     55,
+    58,
+    64,
     65,
+    90,
+    133,
     137,
+    147,
+    161,
+    163,
+    165,
     167,
+    175,
+    179,
+    190,
+    201,
     235,
-    243
+    243,
+    261
   ]
 }

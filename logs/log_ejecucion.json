@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2026-10-16T23:04:15.899780",
+    "timestamp": "2026-10-18T22:21:13.178082",
     "tipo": "percepcion",
     "detalle": {
       "n_registros": 1470,
@@ -8,19 +8,19 @@
     }
   },
   {
-    "timestamp": "2026-10-16T23:04:16.362193",
+    "timestamp": "2026-10-18T22:21:13.472120",
     "tipo": "entrenamiento_inicial",
     "detalle": {
-      "precision": 0.5882,
-      "recall": 0.2128,
-      "f1": 0.3125,
-      "auc_roc": 0.7874,
+      "precision": 0.5098,
+      "recall": 0.5532,
+      "f1": 0.5306,
+      "auc_roc": 0.8163,
       "n_train": 1176,
       "n_test": 294
     }
   },
   {
-    "timestamp": "2026-10-16T23:04:16.374906",
+    "timestamp": "2026-10-18T22:21:13.472120",
     "tipo": "percepcion",
     "detalle": {
       "n_registros": 200,
@@ -28,36 +28,36 @@
     }
   },
   {
-    "timestamp": "2026-10-16T23:04:16.390572",
+    "timestamp": "2026-10-18T22:21:13.485073",
     "tipo": "decision",
     "detalle": {
       "n_evaluados": 200,
-      "n_alto_riesgo": 6
+      "n_alto_riesgo": 25
     }
   },
   {
-    "timestamp": "2026-10-16T23:04:16.391283",
+    "timestamp": "2026-10-18T22:21:13.485073",
     "tipo": "comunicacion",
     "detalle": {
       "ciclo_id": 1,
       "total_empleados": 200,
-      "riesgo_alto": 6,
-      "riesgo_medio": 30,
-      "riesgo_bajo": 164,
-      "probabilidad_promedio": 0.2562
+      "riesgo_alto": 25,
+      "riesgo_medio": 22,
+      "riesgo_bajo": 153,
+      "probabilidad_promedio": 0.34
     }
   },
   {
-    "timestamp": "2026-10-16T23:04:16.393506",
+    "timestamp": "2026-10-18T22:21:13.497919",
     "tipo": "accion",
     "detalle": {
-      "reporte": "logs/reporte_ciclo_1.csv",
-      "notificacion": "logs/notificacion_ciclo_1.json",
-      "n_alto_riesgo_notificados": 6
+      "reporte": "logs\\reporte_ciclo_1.csv",
+      "notificacion": "logs\\notificacion_ciclo_1.json",
+      "n_alto_riesgo_notificados": 25
     }
   },
   {
-    "timestamp": "2026-10-16T23:04:16.407032",
+    "timestamp": "2026-10-18T22:21:13.501051",
     "tipo": "percepcion",
     "detalle": {
       "n_registros": 200,
@@ -65,32 +65,32 @@
     }
   },
   {
-    "timestamp": "2026-10-16T23:04:16.423394",
+    "timestamp": "2026-10-18T22:21:13.516944",
     "tipo": "decision",
     "detalle": {
       "n_evaluados": 200,
-      "n_alto_riesgo": 6
+      "n_alto_riesgo": 25
     }
   },
   {
-    "timestamp": "2026-10-16T23:04:16.424147",
+    "timestamp": "2026-10-18T22:21:13.516944",
     "tipo": "comunicacion",
     "detalle": {
       "ciclo_id": 2,
       "total_empleados": 200,
-      "riesgo_alto": 6,
-      "riesgo_medio": 30,
-      "riesgo_bajo": 164,
-      "probabilidad_promedio": 0.2562
+      "riesgo_alto": 25,
+      "riesgo_medio": 22,
+      "riesgo_bajo": 153,
+      "probabilidad_promedio": 0.34
     }
   },
   {
-    "timestamp": "2026-10-16T23:04:16.425886",
+    "timestamp": "2026-10-18T22:21:13.516944",
     "tipo": "accion",
     "detalle": {
-      "reporte": "logs/reporte_ciclo_2.csv",
-      "notificacion": "logs/notificacion_ciclo_2.json",
-      "n_alto_riesgo_notificados": 6
+      "reporte": "logs\\reporte_ciclo_2.csv",
+      "notificacion": "logs\\notificacion_ciclo_2.json",
+      "n_alto_riesgo_notificados": 25
     }
   }
 ]
